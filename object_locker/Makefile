@@ -1,12 +1,12 @@
 #/***************************************************************************
 # ObjectLocker
 #
-# Sets the "Locked"attribute of objects to True
+# This plugin locks the selected objects
 #							 -------------------
-#		begin				: 2021-11-16
+#		begin				: 2021-12-16
 #		git sha				: $Format:%H$
-#		copyright			: (C) 2021 by AtticDevelopment
-#		email				: bertcommeine@gmail.com
+#		copyright			: (C) 2021 by Attic Development
+#		email				: xxx
 # ***************************************************************************/
 #
 #/***************************************************************************
@@ -38,21 +38,21 @@ LOCALES =
 # translation
 SOURCES = \
 	__init__.py \
-	object_locker.py object_locker_dockwidget.py
+	object_locker.py 
 
 PLUGINNAME = object_locker
 
 PY_FILES = \
 	__init__.py \
-	object_locker.py object_locker_dockwidget.py
+	object_locker.py 
 
-UI_FILES = object_locker_dockwidget_base.ui
+UI_FILES = 
 
-EXTRAS = metadata.txt icon.png
+EXTRAS = metadata.txt 
 
 EXTRA_DIRS =
 
-COMPILED_RESOURCE_FILES = resources.py
+COMPILED_RESOURCE_FILES = 
 
 PEP8EXCLUDE=pydev,resources.py,conf.py,third_party,ui
 
@@ -75,7 +75,7 @@ HELP = help/build/html
 
 PLUGIN_UPLOAD = $(c)/plugin_upload.py
 
-RESOURCE_SRC=$(shell grep '^ *<file' resources.qrc | sed 's@</file>@@g;s/.*>//g' | tr '\n' ' ')
+RESOURCE_SRC=$(shell grep '^ *<file'  | sed 's@</file>@@g;s/.*>//g' | tr '\n' ' ')
 
 .PHONY: default
 default:

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/object_locker.iml" filepath="$PROJECT_DIR$/.idea/object_locker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/qgis-plugins.iml" filepath="$PROJECT_DIR$/.idea/qgis-plugins.iml" />
     </modules>
   </component>
 </project>
