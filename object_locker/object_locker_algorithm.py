@@ -94,13 +94,22 @@ class ObjectLockerAlgorithm(QgsProcessingAlgorithm):
 
         input_layer.startEditing()
 
-        features = input_layer.getFeatures()
+        if len(list(input_layer.getSelectedFeatures())) > 0:
+            features = input_layer.getSelectedFeatures()
+        else:
+            features = input_layer.getFeatures()
+
+        update_counter = 0
 
         for current, f in enumerate(features):
 
             # Stop the algorithm if cancel button has been clicked
             if feedback.isCanceled():
                 break
+
+            # Check the number of updated features
+            if f.attribute('LOCKED') == 'F':
+                update_counter += 1
 
             # Set LOCKED attribute to TRUE ('T')
             f.setAttribute('LOCKED', 'T')
@@ -112,6 +121,8 @@ class ObjectLockerAlgorithm(QgsProcessingAlgorithm):
             feedback.setProgress(int(current * total))
 
         input_layer.commitChanges()
+
+        QgsMessageLog.logMessage(f"{update_counter} features updated", 'Custom Logging')
 
         return {self.OUTPUT: None}
 
